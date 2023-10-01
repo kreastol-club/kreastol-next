@@ -27,6 +27,11 @@
   "indexPage": {
     "hello": "Hello Világ!"
   },
+  "aboutPage": {
+    "header": "Miért válassz bennünket!",
+    "pros": "Előnyök",
+    "cons": "Hátrányok"
+  },
   "errors": {
     "unknownDay": "Ismeretlen Nap!"
   }

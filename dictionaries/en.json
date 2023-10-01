@@ -12,7 +12,7 @@
     "sat": "Saturday",
     "sun": "Sunday"
   },
-  "navBar" : {
+  "navBar": {
     "home": "Home",
     "about": "About",
     "events": "Events",
@@ -25,6 +25,11 @@
   },
   "indexPage": {
     "hello": "Hello World!"
+  },
+  "aboutPage": {
+    "header": "Why should you choose us!",
+    "pros": "Pros",
+    "cons": "Cons"
   },
   "errors": {
     "unknownDay": "Unknown Day!"

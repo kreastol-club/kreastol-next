@@ -4,6 +4,7 @@ import type {Metadata} from 'next'
 import {Inter} from 'next/font/google'
 import React from "react";
 import {i18n, Locale} from "@/i18n.config";
+import getConfig from "next/config";
 
 const inter = Inter({subsets: ['latin']})
 
@@ -13,23 +14,29 @@ export const metadata: Metadata = {
 }
 
 export async function generateStaticParams() {
-    return i18n.locales.map((locale) => ({ lang: locale }))
+    return i18n.locales.map((locale) => ({lang: locale}))
 }
 
 export default function RootLayout({children, params}: {
     children: React.ReactNode
     params: { lang: Locale }
 }) {
+    const {publicRuntimeConfig} = getConfig();
     return (
         <html lang={params.lang}>
         <body className={inter.className}>
         <div className="flex flex-col h-screen mx-3">
-            <Nav params={params} />
+            <Nav params={params}/>
             <main className="w-full h-full">
                 {children}
             </main>
+            <footer className="footer footer-center p-4 flex flex-row">
+                <aside>
+                    <p>Copyright © 2023 - Kreastol Klub Org.</p>
+                </aside>
+                <span className="badge badge-primary badge-outline">preview | kreastol-next@{publicRuntimeConfig.version}</span>
+            </footer>
         </div>
-
         </body>
         </html>
     )
