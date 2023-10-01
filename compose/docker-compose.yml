@@ -1,0 +1,9 @@
+version: "3.8"
+
+name: kreastol-next
+
+services:
+  kreastol-app:
+    image: kreastol-next:1.3
+    ports:
+      - "8887:3000"

@@ -17,8 +17,13 @@ export default function RootLayout({ children }: {
     return (
         <html lang="en">
             <body className={inter.className}>
+                <div className='p-3 flex flex-col h-screen'>
                 <Nav />
-                {children}
+                <main className='flex flex-1 my-3 p-2 card'>
+                    {children}
+                </main>
+                </div>
+                
             </body>
         </html>
     )

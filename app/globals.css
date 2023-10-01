@@ -1,20 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Nabla&family=Onest:wght@100;400;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
     --foreground-rgb: 0, 0, 0;
-    --background-start-rgb: 214, 219, 220;
+    --background-rgb: 255, 255, 255;
+    --card-bg: #fff3f0;
+    --primary: #f6ae2d;
+    
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
         --foreground-rgb: 255, 255, 255;
-        --background-start-rgb: 0, 0, 0;
+        --background-rgb: 0, 0, 0;
+        --card-bg: #1b2021;
     }
 }
 
 body {
     color: rgb(var(--foreground-rgb));
-    background: rgb(var(--background-start-rgb));
+    background: rgb(var(--background-rgb));
+    font-family: 'Onest', sans-serif;
+}
+
+.card {
+    @apply rounded-md;
+    background: var(--card-bg);
+}
+
+.btn {
+    @apply rounded-md;
+    background: var(--card-bg);
+}
+
+.btn:hover {
+    background: var(--primary);
+    color: rgb(var(--background-rgb));
+}
+
+.unique_header {
+    font-family: 'Nabla', cursive;
 }
