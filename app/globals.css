@@ -1,8 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Nabla&family=Onest:wght@100;400;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nabla:EDPT,EHLT@30..200,24&family=Onest:wght@100;400;900&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-palette-values --Nabla {
+    font-family: Nabla;
+    override-colors:
+        0 #0D00FF,
+        1 #AA00AF,
+        2 #FF00F1,
+        3 #FF00F1,
+        4 #1800FF,
+        5 #0803D8,
+        6 #00009C,
+        7 #0031FF,
+        8 #C600C6,
+        9 #FF9CFF;
+}
 
 :root {
     --foreground-rgb: 0, 0, 0;
@@ -32,5 +47,18 @@ body {
 }
 
 .unique_header {
-    font-family: 'Nabla', cursive;
+    font-palette: --Nabla;
+    font-family: Nabla;
+    font-variation-settings: "EDPT" 100;
+
+}
+
+@keyframes depth {
+    0% {
+        transform: translatex(0) translatey(0);
+    }
+    100% {
+        font-variation-settings: "EDPT" 200;
+        transform: translatex(0.15em) translatey(0.1em);
+    }
 }
