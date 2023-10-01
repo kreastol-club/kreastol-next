@@ -1,8 +1,9 @@
-export async function GET(request) {
+export async function GET(request: any) {
+
     const events = [
         {
             id: 1,
-            day: 'Monday',
+            day: 1,
             start: '4PM',
             end: '6PM'
         }

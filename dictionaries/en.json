@@ -1,0 +1,32 @@
+{
+  "locales": {
+    "en": "English",
+    "hu": "Hungarian"
+  },
+  "days": {
+    "mon": "Monday",
+    "tue": "Tuesday",
+    "wed": "Wednesday",
+    "thu": "Thursday",
+    "fri": "Friday",
+    "sat": "Saturday",
+    "sun": "Sunday"
+  },
+  "navBar" : {
+    "home": "Home",
+    "about": "About",
+    "events": "Events",
+    "lang": "Language"
+  },
+  "eventsPage": {
+    "start": "Starts",
+    "end": "Ends",
+    "day": "Day"
+  },
+  "indexPage": {
+    "hello": "Hello World!"
+  },
+  "errors": {
+    "unknownDay": "Unknown Day!"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "locales": {
+    "en": "Angol",
+    "hu": "Magyar"
+  },
+  "days": {
+    "mon": "Hétfő",
+    "tue": "Kedd",
+    "wed": "Szerda",
+    "thu": "Csütörtök",
+    "fri": "Péntek",
+    "sat": "Szombat",
+    "sun": "Vasárnaő"
+  },
+  "navBar" : {
+    "home": "Otthon",
+    "about": "Rólunk",
+    "events": "Események",
+    "lang": "Nyelv"
+  },
+  "eventsPage": {
+    "day": "Nap",
+    "events": "Események",
+    "start": "Kezdődik",
+    "end": "Végződik"
+  },
+  "indexPage": {
+    "hello": "Hello Világ!"
+  },
+  "errors": {
+    "unknownDay": "Ismeretlen Nap!"
+  }
+}
