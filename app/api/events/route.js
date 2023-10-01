@@ -7,5 +7,5 @@ export async function GET(request) {
             end: '6PM'
         }
     ]
-    return new Response(JSON.stringify(event));
+    return new Response(JSON.stringify(events));
 }

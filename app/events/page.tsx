@@ -21,13 +21,15 @@ export default async function Events() {
                             <th>End</th>
                         </tr>
                     </thead>
+                    <tbody>
                     {events.map((event) => (
-                        <>
+                        <tr key={event.id}>
                             <td>{event.day}</td>
                             <td>{event.start}</td>
                             <td>{event.end}</td>
-                        </>
+                        </tr>
                     ))}
+                    </tbody>
                 </table>
             </div>
         </>
