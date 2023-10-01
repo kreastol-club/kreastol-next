@@ -31,16 +31,6 @@ body {
     background: var(--card-bg);
 }
 
-.btn {
-    @apply rounded-md;
-    background: var(--card-bg);
-}
-
-.btn:hover {
-    background: var(--primary);
-    color: rgb(var(--background-rgb));
-}
-
 .unique_header {
     font-family: 'Nabla', cursive;
 }

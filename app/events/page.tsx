@@ -13,7 +13,7 @@ export default async function Events() {
         <>
             <div>
                 <h2>Events Page</h2>
-                <table>
+                <table className="table">
                     <thead>
                         <tr>
                             <th>Day</th>
