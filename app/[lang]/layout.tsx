@@ -30,7 +30,7 @@ export default function RootLayout({children, params}: {
             <main className="w-full h-full">
                 {children}
             </main>
-            <footer className="footer footer-center p-4 flex flex-row">
+            <footer className="footer footer-center justify-evenly gap-4 p-4 flex flex-row max-sm:flex-col">
                 <aside>
                     <p>Copyright © 2023 - Kreastol Klub Org.</p>
                 </aside>

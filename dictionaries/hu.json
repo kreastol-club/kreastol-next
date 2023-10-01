@@ -34,5 +34,8 @@
   },
   "errors": {
     "unknownDay": "Ismeretlen Nap!"
+  },
+  "loading": {
+    "text": "Betöltés"
   }
 }
