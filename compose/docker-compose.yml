@@ -4,6 +4,6 @@ name: kreastol-next
 
 services:
   kreastol-app:
-    image: kreastol-next:1.4
+    image: kreastol-next:latest
     ports:
       - "8887:3000"

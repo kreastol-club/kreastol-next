@@ -21,8 +21,8 @@
 
 :root {
     --foreground-rgb: 0, 0, 0;
-    --background-rgb: 255, 255, 255;
-    --card-bg: #fff3f0;
+    --background-rgb: #fafffd;
+    --card-bg: #ebebeb;
     --primary: #f6ae2d;
     
 }
@@ -41,16 +41,10 @@ body {
     font-family: 'Onest', sans-serif;
 }
 
-.card {
-    @apply rounded-md;
-    background: var(--card-bg);
-}
-
 .unique_header {
     font-palette: --Nabla;
     font-family: Nabla;
     font-variation-settings: "EDPT" 100;
-
 }
 
 @keyframes depth {
