@@ -13,7 +13,7 @@ export default async function EventLayout({children, params}: {
     return (
         <Card>
             <div className='flex flex-col w-full'>
-                <h2>{dictionary.eventsPage.events}</h2>
+                <h2 className='text-lg my-4'>{dictionary.eventsPage.events}</h2>
                 <EventPaginator params={params} res={dictionary.eventsPage}/>
                 {children}
             </div>

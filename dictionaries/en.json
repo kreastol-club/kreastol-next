@@ -27,10 +27,10 @@
     },
     "layout": {
       "week": {
-        "underDev": "Weekly view is under development!"
+        "underDev": "The meekly view is under development!"
       },
       "month": {
-        "underDev": "Monthly view is under development!"
+        "underDev": "The monthly view is under development!"
       },
       "list": {
         "start": "Starts",
@@ -52,7 +52,7 @@
   "errors": {
     "unknownDay": "Unknown Day!"
   },
-  "loading": {
-    "text": "Loading"
+  "common": {
+    "note": "Note:"
   }
 }

@@ -1,8 +1,12 @@
 import React from 'react';
+import {Locale} from "@/i18n.config";
+import {getDictionary} from "@/dictionaries";
+import Note from "@/app/[lang]/components/Note";
 
 
-export default function Month() {
+export default async function Month({params}: { params: { lang: Locale } }) {
+    const dictionary = await getDictionary(params.lang);
     return (
-        <div>MonthView</div>
+        <Note noteLocale={dictionary.common.note}>{dictionary.eventsPage.layout.month.underDev}</Note>
     );
 }
