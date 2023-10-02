@@ -14,7 +14,7 @@ export default function EventLayout({children, params}: {
         <Card>
             <div className='flex flex-col w-full'>
                 <h2>Kreastol Events</h2>
-                <Link href={`/events/week-calendar`}>Week View</Link>
+                <Link href={`/events/week`}>Week View</Link>
                 <Link href={`/events`}>Summary</Link>
                 {children}
             </div>
