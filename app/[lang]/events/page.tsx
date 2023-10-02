@@ -7,6 +7,8 @@ interface Event {
     day: number;
     start: string;
     end: string;
+    forWho: string;
+    desc: string;
 }
 
 export default async function Events({params: {lang}}: {
@@ -14,7 +16,7 @@ export default async function Events({params: {lang}}: {
 }) {
     const dictionary = await getDictionary(lang);
 
-    const res = await fetch(process.env.BASE_URL + '/api/events');
+    const res = await fetch(process.env.BASE_URL + '/api/events/' + lang);
     const events: Event[] = await res.json();
 
     function numberToDay(num: number): string {
@@ -43,17 +45,21 @@ export default async function Events({params: {lang}}: {
             <table className="table">
                 <thead>
                 <tr>
-                    <th>{dictionary.eventsPage.day}</th>
-                    <th>{dictionary.eventsPage.start}</th>
-                    <th>{dictionary.eventsPage.end}</th>
+                    <th>{dictionary.eventsPage.layout.list.day}</th>
+                    <th>{dictionary.eventsPage.layout.list.start}</th>
+                    <th>{dictionary.eventsPage.layout.list.end}</th>
+                    <th>{dictionary.eventsPage.layout.list.forWho}</th>
+                    <th>{dictionary.eventsPage.layout.list.desc}</th>
                 </tr>
                 </thead>
                 <tbody>
                 {events.map((event) => (
-                    <tr key={event.id}>
+                    <tr key={event.id} className="hover">
                         <td>{numberToDay(event.day)}</td>
                         <td>{event.start}</td>
                         <td>{event.end}</td>
+                        <td>{event.forWho}</td>
+                        <td>{event.desc}</td>
                     </tr>
                 ))}
                 </tbody>

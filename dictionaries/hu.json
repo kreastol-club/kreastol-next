@@ -19,13 +19,30 @@
     "lang": "Nyelv"
   },
   "eventsPage": {
-    "day": "Nap",
-    "events": "Események",
-    "start": "Kezdődik",
-    "end": "Végződik"
+    "events": "Kreastol Közelgő Események",
+    "paginator": {
+      "week": "Hét",
+      "month": "Hónap",
+      "list": "Lista"
+    },
+    "layout": {
+      "week": {
+        "underDev": "Heti nézet fejlesztés alatt áll!"
+      },
+      "month": {
+        "underDev": "havi nézet fejlesztés alatt áll!"
+      },
+      "list": {
+        "day": "Nap",
+        "start": "Kezdődik",
+        "end": "Végződik",
+        "forWho": "Kinek",
+        "desc": "Leírás"
+      }
+    }
   },
   "indexPage": {
-    "hello": "Hello Világ!"
+    "hello": "Helló Világ!"
   },
   "aboutPage": {
     "header": "Miért válassz bennünket!",

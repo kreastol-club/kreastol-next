@@ -1,21 +1,20 @@
-import React from "react";
-import {Locale} from "@/i18n.config";
-import getConfig from "next/config";
-import Nav from "@/app/[lang]/components/Nav";
 import Card from "@/app/[lang]/components/Card";
-import Link from "next/link";
+import {Locale} from "@/i18n.config";
+import React from "react";
+import EventPaginator from "@/app/[lang]/events/components/Paginator";
+import {getDictionary} from "@/dictionaries";
 
-export default function EventLayout({children, params}: {
+
+export default async function EventLayout({children, params}: {
     children: React.ReactNode
     params: { lang: Locale }
 }) {
-
+    const dictionary = await getDictionary(params.lang);
     return (
         <Card>
             <div className='flex flex-col w-full'>
-                <h2>Kreastol Events</h2>
-                <Link href={`/events/week`}>Week View</Link>
-                <Link href={`/events`}>Summary</Link>
+                <h2>{dictionary.eventsPage.events}</h2>
+                <EventPaginator params={params} res={dictionary.eventsPage}/>
                 {children}
             </div>
         </Card>

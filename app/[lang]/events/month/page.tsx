@@ -1,5 +1,8 @@
-export function Month() {
+import React from 'react';
+
+
+export default function Month() {
     return (
-        <>MonthView</>
+        <div>MonthView</div>
     );
 }

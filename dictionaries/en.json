@@ -19,9 +19,27 @@
     "lang": "Language"
   },
   "eventsPage": {
-    "start": "Starts",
-    "end": "Ends",
-    "day": "Day"
+    "events": "Kreastol Upcoming Events",
+    "paginator": {
+      "week": "Week",
+      "month": "Month",
+      "list": "List"
+    },
+    "layout": {
+      "week": {
+        "underDev": "Weekly view is under development!"
+      },
+      "month": {
+        "underDev": "Monthly view is under development!"
+      },
+      "list": {
+        "start": "Starts",
+        "end": "Ends",
+        "day": "Day",
+        "forWho": "For who",
+        "desc": "Description"
+      }
+    }
   },
   "indexPage": {
     "hello": "Hello World!"
