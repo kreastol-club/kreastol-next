@@ -5,6 +5,7 @@ import {Inter} from 'next/font/google'
 import React from "react";
 import {i18n, Locale} from "@/i18n.config";
 import getConfig from "next/config";
+import AuthProvider from "@/app/[lang]/context/AuthProvider";
 
 const inter = Inter({subsets: ['latin']})
 
@@ -22,20 +23,24 @@ export default function RootLayout({children, params}: {
     params: { lang: Locale }
 }) {
     const {publicRuntimeConfig} = getConfig();
+
     return (
         <html lang={params.lang}>
         <body className={inter.className}>
         <div className="flex flex-col h-screen mx-3">
-            <Nav params={params}/>
-            <main className="w-full h-full">
-                {children}
-            </main>
-            <footer className="footer footer-center justify-evenly gap-4 p-4 flex flex-row max-sm:flex-col">
-                <aside>
-                    <p>Copyright © 2023 - Kreastol Klub Org.</p>
-                </aside>
-                <span className="badge badge-primary badge-outline">preview | kreastol-next@{publicRuntimeConfig.version}</span>
-            </footer>
+            <AuthProvider>
+                <Nav params={params}/>
+                <main className="w-full h-full">
+                    {children}
+                </main>
+                <footer className="footer footer-center justify-evenly gap-4 p-4 flex flex-row max-sm:flex-col">
+                    <aside>
+                        <p>Copyright © 2023 - Kreastol Klub Org.</p>
+                    </aside>
+                    <span
+                        className="badge badge-primary badge-outline">preview | kreastol-next@{publicRuntimeConfig.version}</span>
+                </footer>
+            </AuthProvider>
         </div>
         </body>
         </html>

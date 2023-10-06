@@ -5,5 +5,22 @@ name: kreastol-next
 services:
   kreastol-app:
     image: kreastol-next:0.1.2
+    restart: always
     ports:
       - "8887:3000"
+  db:
+    image: 'bitnami/postgresql:latest'
+    env_file:
+      - .env
+    ports:
+      - '2345:5432'
+    volumes:
+      - 'pg_data:/bitnami/postgresql'
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8080:8080"
+
+volumes:
+  pg_data:

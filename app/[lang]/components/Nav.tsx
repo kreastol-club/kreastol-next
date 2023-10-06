@@ -3,6 +3,7 @@ import React from 'react'
 import LanguageSwitcher, {Resources} from "@/app/[lang]/components/LanguageSwitcher";
 import {Locale} from "@/i18n.config";
 import {getDictionary} from "@/dictionaries";
+import UserCard from "@/app/[lang]/components/UserCard";
 
 export default async function Nav({params: {lang}}: {
     params: { lang: Locale }
@@ -20,7 +21,9 @@ export default async function Nav({params: {lang}}: {
                     <Link key={'home'} className="mx-1 btn" href={`/${lang}/`}>{dictionary.navBar.home}</Link>
                     <Link key={'events'} className="mx-1 btn" href={`/${lang}/events`}>{dictionary.navBar.events}</Link>
                     <Link key={'about'} className="mx-1 btn" href={`/${lang}/about`}>{dictionary.navBar.about}</Link>
+                    <Link key={'products'} className="mx-1 btn" href={`/${lang}/products`}>Products</Link>
                 </div>
+                <UserCard />
                 <LanguageSwitcher res={res}/>
             </div>
         </>
