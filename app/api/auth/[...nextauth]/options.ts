@@ -1,6 +1,7 @@
 import type { NextAuthOptions } from 'next-auth'
 import GitHubProvider, {GithubProfile} from "next-auth/providers/github";
 import GoogleProvider, {GoogleProfile} from "next-auth/providers/google";
+import FacebookProvider, {FacebookProfile} from "next-auth/providers/facebook";
 import {PrismaAdapter} from "@next-auth/prisma-adapter";
 import { PrismaClient } from '@prisma/client';
 
@@ -39,6 +40,21 @@ export const options: NextAuthOptions = {
             },
             clientId: process.env.GOOGLE_ID as string,
             clientSecret: process.env.GOOGLE_SECRET as string,
+        }),
+        FacebookProvider({
+            authorization: "https://www.facebook.com/v18.0/dialog/oauth",
+            profile(profile: FacebookProfile) {
+                return {
+                    // ...profile,
+                    name: profile.name,
+                    role: profile.role ?? "user",
+                    id: profile.id.toString(),
+                    image: profile.picture.data.url,
+                    email: profile.email
+                }
+            },
+            clientId: process.env.FACEBOOK_ID as string,
+            clientSecret: process.env.FACEBOOK_SECRET as string,
         })
     ],
     callbacks: {

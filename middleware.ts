@@ -1,5 +1,5 @@
-import {NextResponse} from 'next/server'
 import type {NextRequest} from 'next/server'
+import {NextFetchEvent, NextResponse} from 'next/server'
 
 import {i18n} from './i18n.config'
 
@@ -12,18 +12,27 @@ function getLocale(request: NextRequest): string | undefined {
 
     // @ts-ignore locales are readonly
     const locales: string[] = i18n.locales
-
     let languages = new Negotiator({headers: negotiatorHeaders}).languages(
         locales
     )
-
-    const locale = matchLocale(languages, locales, i18n.defaultLocale)
-
-    return locale
+    return matchLocale(languages, locales, i18n.defaultLocale)
 }
 
-export function middleware(request: NextRequest) {
+type Environment = "production" | "development" | "other";
+
+
+export function middleware(request: NextRequest, ev: NextFetchEvent) {
     const pathname = request.nextUrl.pathname
+
+    const currentEnv = process.env.NODE_ENV as Environment;
+
+    if (currentEnv === 'production' &&
+        request.headers.get("x-forwarded-proto") !== "https") {
+        return NextResponse.redirect(
+            `https://${request.headers.get('host')}${request.nextUrl.pathname}`,
+            301
+        );
+    }
 
     // // `/_next/` and `/api/` are ignored by the watcher, but we need to ignore files in `public` manually.
     // // If you have one
