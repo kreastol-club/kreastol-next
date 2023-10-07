@@ -11,13 +11,21 @@ interface Event {
     desc: string;
 }
 
+async function getData(lang: string) {
+    const res = await fetch(`${process.env.BASE_URL}/api/events/${lang}`)
+    if (!res.ok) {
+        throw new Error('Failed to fetch data')
+    }
+
+    return res.json()
+}
+
 export default async function Events({params: {lang}}: {
     params: { lang: Locale }
 }) {
     const dictionary = await getDictionary(lang);
 
-    const res = await fetch(process.env.BASE_URL + '/api/events/' + lang);
-    const events: Event[] = await res.json();
+    const events: Event[] = await getData(lang);
 
     function numberToDay(num: number): string {
         switch (num) {

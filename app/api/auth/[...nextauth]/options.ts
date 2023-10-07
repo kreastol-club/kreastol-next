@@ -41,26 +41,24 @@ export const options: NextAuthOptions = {
             clientId: process.env.GOOGLE_ID as string,
             clientSecret: process.env.GOOGLE_SECRET as string,
         }),
-        FacebookProvider({
-            authorization: "https://www.facebook.com/v18.0/dialog/oauth",
-            profile(profile: FacebookProfile) {
-                return {
-                    // ...profile,
-                    name: profile.name,
-                    role: profile.role ?? "user",
-                    id: profile.id.toString(),
-                    image: profile.picture.data.url,
-                    email: profile.email
-                }
-            },
-            clientId: process.env.FACEBOOK_ID as string,
-            clientSecret: process.env.FACEBOOK_SECRET as string,
-        })
+        // FacebookProvider({
+        //     authorization: "https://www.facebook.com/v18.0/dialog/oauth?scope=email",
+        //     profile(profile: FacebookProfile) {
+        //         return {
+        //             // ...profile,
+        //             name: profile.name,
+        //             role: profile.role ?? "user",
+        //             id: profile.id.toString(),
+        //             image: profile.picture.data.url,
+        //             email: profile.email
+        //         }
+        //     },
+        //     clientId: process.env.FACEBOOK_ID as string,
+        //     clientSecret: process.env.FACEBOOK_SECRET as string,
+        // })
     ],
     callbacks: {
         async jwt({token, user}) {
-            // console.log("User: " + JSON.stringify(user))
-            // console.log("JWT: " + JSON.stringify(token))
             if (user){
                 token.role = user.role
             }
