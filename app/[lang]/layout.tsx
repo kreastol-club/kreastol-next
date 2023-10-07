@@ -6,6 +6,7 @@ import React from "react";
 import {i18n, Locale} from "@/i18n.config";
 import getConfig from "next/config";
 import AuthProvider from "@/app/[lang]/context/AuthProvider";
+import UserCard from "@/app/[lang]/components/UserCard";
 
 const inter = Inter({subsets: ['latin']})
 
@@ -33,12 +34,15 @@ export default function RootLayout({children, params}: {
                 <main className="w-full h-full">
                     {children}
                 </main>
-                <footer className="footer footer-center justify-evenly gap-4 p-4 flex flex-row max-sm:flex-col">
-                    <aside>
+                <footer className="footer footer-center gap-4 p-4 flex justify-evenly flex-row max-sm:flex-col">
+                    <aside className='flex'>
                         <p>Copyright © 2023 - Kreastol Klub Org.</p>
                     </aside>
                     <span
-                        className="badge badge-primary badge-outline">preview | kreastol-next@{publicRuntimeConfig.version}</span>
+                        className="badge badge-primary badge-outline flex">preview | kreastol-next@{publicRuntimeConfig.version}</span>
+                    <div className='flex'>
+                        <UserCard />
+                    </div>
                 </footer>
             </AuthProvider>
         </div>

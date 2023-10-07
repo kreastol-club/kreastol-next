@@ -1,9 +1,11 @@
 'use client'
 
-export default function AdminPage() {
-    // const [session] = await Promise.all([useSession()])
+import {useSession} from "next-auth/react";
 
-    // if (session?.user?.role === "admin") {
+export default function AdminPage() {
+    const {data: session} = useSession()
+
+    if (session?.user?.role === "admin") {
         return <p>You are an admin, welcome!</p>
     }
 

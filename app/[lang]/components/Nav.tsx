@@ -4,6 +4,7 @@ import LanguageSwitcher, {Resources} from "@/app/[lang]/components/LanguageSwitc
 import {Locale} from "@/i18n.config";
 import {getDictionary} from "@/dictionaries";
 import UserCard from "@/app/[lang]/components/UserCard";
+import LoginButton from "@/app/[lang]/components/LoginButton";
 
 export default async function Nav({params: {lang}}: {
     params: { lang: Locale }
@@ -23,7 +24,7 @@ export default async function Nav({params: {lang}}: {
                     <Link key={'about'} className="mx-1 btn" href={`/${lang}/about`}>{dictionary.navBar.about}</Link>
                     <Link key={'products'} className="mx-1 btn" href={`/${lang}/products`}>Products</Link>
                 </div>
-                <UserCard />
+                <LoginButton />
                 <LanguageSwitcher res={res}/>
             </div>
         </>
