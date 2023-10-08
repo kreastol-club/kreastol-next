@@ -6,7 +6,7 @@ services:
   kreastol-app:
     env_file:
       - .env
-    image: kreastol-next:0.1.5
+    image: kreastol-next:0.1.6
     restart: always
     ports:
       - "8887:3000"

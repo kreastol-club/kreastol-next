@@ -4,7 +4,15 @@ const { version } = require('./package.json');
 const nextConfig = {
     publicRuntimeConfig: {
         version
-    }
+    },
+    images: {
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'files.stripe.com',
+            },
+        ],
+    },
 }
 
 module.exports = nextConfig

@@ -52,3 +52,52 @@ model VerificationToken {
 
   @@unique([identifier, token])
 }
+
+model Language {
+  id          String        @id @default(cuid())
+  name        String
+  TextContent TextContent[]
+  Translation Translation[]
+}
+
+model TextContent {
+  id               String        @id @default(cuid())
+  originalText     String
+  originalLanguage Language      @relation(fields: [languageId], references: [id])
+  languageId       String
+  translation      Translation[]
+  ProductTag       ProductTag[]
+  ServiceName      Service[]     @relation("service-name")
+  ServiceDesc      Service[]     @relation("service-description")
+}
+
+model Translation {
+  textContent   TextContent @relation(fields: [textContentId], references: [id])
+  textContentId String
+  language      Language    @relation(fields: [languageId], references: [id])
+  languageId    String
+  text          String
+
+  @@unique([languageId, textContentId])
+}
+
+model ProductTag {
+  id            String      @id @default(cuid())
+  textContent   TextContent @relation(fields: [textContentId], references: [id])
+  textContentId String
+  Product       Product?    @relation(fields: [productId], references: [id])
+  productId     String?
+}
+
+model Product {
+  id   String       @id
+  tags ProductTag[]
+}
+
+model Service {
+  id            String       @id @default(cuid())
+  name          TextContent? @relation("service-name", fields: [nameId], references: [id])
+  nameId        String       @unique
+  description   TextContent? @relation("service-description", fields: [descriptionId], references: [id])
+  descriptionId String       @unique
+}
