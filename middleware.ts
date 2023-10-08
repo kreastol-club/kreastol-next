@@ -5,6 +5,11 @@ import {i18n} from './i18n.config'
 
 import {match as matchLocale} from '@formatjs/intl-localematcher'
 import Negotiator from 'negotiator'
+import {withAuth} from "next-auth/middleware";
+
+function combinePath(request: NextRequest, path: string): boolean {
+    return request.nextUrl.pathname.startsWith(`/${getLocale(request)}/${path}`)
+}
 
 function getLocale(request: NextRequest): string | undefined {
     const negotiatorHeaders: Record<string, string> = {}
@@ -20,6 +25,23 @@ function getLocale(request: NextRequest): string | undefined {
 
 type Environment = "production" | "development" | "other";
 
+const auth = withAuth(
+    // `withAuth` augments your `Request` with the user's token.
+    function middleware(req) {
+        console.log(req.nextauth.token)
+    },
+    {
+        callbacks: {
+            authorized({req, token}) {
+                if (combinePath(req, 'admin')) {
+                    return token?.role === "admin";
+                }
+
+                return !!token;
+            },
+        },
+    }
+)
 
 export function middleware(request: NextRequest, ev: NextFetchEvent) {
     const pathname = request.nextUrl.pathname
@@ -36,16 +58,18 @@ export function middleware(request: NextRequest, ev: NextFetchEvent) {
         );
     }
 
-    if (
-        [
-            '/manifest.json',
-            '/favicon.ico',
-            '/toc.html',
-            '/privacy.html'
-        ].includes(pathname)
-    ) {
-        return;
-    }
+    if (pathname.startsWith(''))
+
+        if (
+            [
+                '/manifest.json',
+                '/favicon.ico',
+                '/toc.html',
+                '/privacy.html'
+            ].includes(pathname)
+        ) {
+            return;
+        }
 
     // Check if there is any supported locale in the pathname
     const pathnameIsMissingLocale = i18n.locales.every(

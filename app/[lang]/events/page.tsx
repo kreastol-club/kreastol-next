@@ -1,6 +1,7 @@
 import {Locale} from "@/i18n.config";
 import {getDictionary} from "@/dictionaries";
 import Card from "@/app/[lang]/components/Card";
+import {headers} from "next/headers";
 
 interface Event {
     id: number;
@@ -12,7 +13,12 @@ interface Event {
 }
 
 async function getData(lang: string) {
-    const res = await fetch(`${process.env.BASE_URL}/api/events/${lang}`)
+    const res = await fetch(
+        `${process.env.BASE_URL}/api/events/${lang}`, {
+            method: "GET",
+            headers: headers()
+        }
+    )
     if (!res.ok) {
         throw new Error('Failed to fetch data')
     }
@@ -24,7 +30,6 @@ export default async function Events({params: {lang}}: {
     params: { lang: Locale }
 }) {
     const dictionary = await getDictionary(lang);
-
     const events: Event[] = await getData(lang);
 
     function numberToDay(num: number): string {

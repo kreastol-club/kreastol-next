@@ -1,13 +1,13 @@
-'use client'
+import {getServerSession} from "next-auth";
+import {authOptions} from "@/app/api/auth/[...nextauth]/route";
+import {AuthRequiredError} from "@/lib/exceptions";
 
-import {useSession} from "next-auth/react";
-
-export default function AdminPage() {
-    const {data: session} = useSession()
-
-    if (session?.user?.role === "admin") {
+export default async function AdminPage() {
+    const session = await getServerSession(authOptions);
+    if(session?.user.isAdmin){
         return <p>You are an admin, welcome!</p>
     }
-
-    return <p>You are not authorized to view this page!</p>
+    else{
+        throw new AuthRequiredError();
+    }
 }
