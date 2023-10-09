@@ -2,58 +2,39 @@ import {NextRequest, NextResponse} from "next/server";
 import {getServerSession} from "next-auth";
 import {authOptions} from "@/app/api/auth/[...nextauth]/route";
 import {PrismaClient, Service} from "@prisma/client";
+import {deserialize, getLocale} from "@/lib/functions";
 
 const prisma = new PrismaClient()
 
-type TranslationObject = {
-    translation: [
-        {
-            text: string
-        }
-    ]
-}
+const serviceQuery = {
+    select: {
+        name: getLocale("en"),
+        description: getLocale("en")
+    },
+};
 
-function getLocale(locale: string) {
-    return {
-        select: {
-            translation: {
-                select: {
-                    text: true
-                },
-                where: {
-                    language: {
-                        name: locale
-                    }
-                }
-            }
-        }
-    }
-}
+async function getServices(){
+    const results = await prisma.service.findMany(serviceQuery);
 
-function deserialize(object: TranslationObject): string {
-    return object.translation[0].text;
+    return results.map(s => {
+        return {
+            name: deserialize(s.name),
+            descriptions: deserialize(s.description)
+        }
+    })
 }
 
 export async function GET(request: NextRequest) {
-    const service = await prisma.service.findMany({
-        select: {
-            name: getLocale("en"),
-            description: getLocale("en")
-        },
+    const services = await getServices();
+
+    return NextResponse.json({
+        count: services.length,
+        services: services
     });
-
-    // const services = service.map((s) => {
-    //     if(s && s.name && s.description){
-    //         return { name: deserialize(s.name)}
-    //     }
-    //     else {
-    //         return null;
-    //     }
-    // });
-
 }
 
 export async function POST(request: NextRequest) {
     const session = await getServerSession(authOptions);
+    let data = await request.json();
     return NextResponse.json(session)
 }
