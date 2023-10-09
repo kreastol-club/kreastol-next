@@ -16,7 +16,9 @@
     "home": "Home",
     "about": "About",
     "events": "Events",
-    "lang": "Language"
+    "lang": "Language",
+    "signIn": "Sign In",
+    "signOut": "Sign Out"
   },
   "eventsPage": {
     "events": "Kreastol Upcoming Events",
@@ -27,7 +29,7 @@
     },
     "layout": {
       "week": {
-        "underDev": "The meekly view is under development!"
+        "underDev": "The weekly view is under development!"
       },
       "month": {
         "underDev": "The monthly view is under development!"
@@ -50,9 +52,11 @@
     "cons": "Cons"
   },
   "errors": {
-    "unknownDay": "Unknown Day!"
+    "unknownDay": "Unknown Day!",
+    "unauthorized": "You are Unauthorized!"
   },
   "common": {
-    "note": "Note:"
+    "note": "Note:",
+    "goHome": "Back"
   }
 }

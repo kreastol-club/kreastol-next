@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nabla:EDPT,EHLT@30..200,24&family=Onest:wght@100;400;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
 
 @tailwind base;
 @tailwind components;
@@ -6,17 +7,16 @@
 
 @font-palette-values --Nabla {
     font-family: Nabla;
-    override-colors:
-        0 #0D00FF,
-        1 #AA00AF,
-        2 #FF00F1,
-        3 #FF00F1,
-        4 #1800FF,
-        5 #0803D8,
-        6 #00009C,
-        7 #0031FF,
-        8 #C600C6,
-        9 #FF9CFF;
+    override-colors: 0 #0D00FF,
+    1 #AA00AF,
+    2 #FF00F1,
+    3 #FF00F1,
+    4 #1800FF,
+    5 #0803D8,
+    6 #00009C,
+    7 #0031FF,
+    8 #C600C6,
+    9 #FF9CFF;
 }
 
 :root {
@@ -24,7 +24,7 @@
     --background-rgb: #fafffd;
     --card-bg: #ebebeb;
     --primary: #f6ae2d;
-    
+
 }
 
 @media (prefers-color-scheme: dark) {
@@ -55,4 +55,11 @@ body {
         font-variation-settings: "EDPT" 200;
         transform: translatex(0.15em) translatey(0.1em);
     }
+}
+
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0,
+    'wght' 200,
+    'GRAD' 0,
+    'opsz' 24
 }

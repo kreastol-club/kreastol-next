@@ -3,13 +3,19 @@ import {authOptions} from "@/app/api/auth/[...nextauth]/route";
 import {AuthRequiredError} from "@/lib/exceptions";
 import React from "react";
 import Card from "@/app/[lang]/components/Card";
+import Unauthorized from "@/app/[lang]/components/Unauthorized";
+import {Locale} from "@/i18n.config";
 
-export default async function AdminPage({children}: {children: React.ReactNode}) {
+export default async function AdminPage({children, params}: {
+    children: React.ReactNode
+    params: { lang: Locale }
+}) {
+
     const session = await getServerSession(authOptions);
-    if(session?.user.isAdmin){
+
+    if (session?.user.isAdmin) {
         return <Card>{children}</Card>
-    }
-    else{
-        throw new AuthRequiredError();
+    } else {
+        return <Unauthorized lang={params.lang} redirect={'/'}/>
     }
 }

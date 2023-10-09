@@ -35,6 +35,29 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
     const session = await getServerSession(authOptions);
-    let data = await request.json();
-    return NextResponse.json(session)
+
+    let data = await request.formData();
+
+    console.log(data);
+
+
+
+    let enNameData = data.get("service-name-en")!;
+
+
+    // let nameTextContext = await prisma.textContent.create({
+    //     data: {
+    //         originalText: enNameData.toString(),
+    //         originalLanguage: null
+    //         te
+    //     },
+    //     include: {
+    //         originalLanguage
+    //     }
+    // })
+    // let enName = await prisma.translation.create({
+    //
+    // })
+
+    return NextResponse.json({})
 }

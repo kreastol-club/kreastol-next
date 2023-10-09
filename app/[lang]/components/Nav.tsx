@@ -23,8 +23,9 @@ export default async function Nav({params: {lang}}: {
                     <Link key={'events'} className="mx-1 btn" href={`/${lang}/events`}>{dictionary.navBar.events}</Link>
                     <Link key={'about'} className="mx-1 btn" href={`/${lang}/about`}>{dictionary.navBar.about}</Link>
                     <Link key={'products'} className="mx-1 btn" href={`/${lang}/products`}>Products</Link>
+                    <Link key={'services'} className="mx-1 btn" href={`/${lang}/services`}>Services</Link>
                 </div>
-                <LoginButton />
+                <LoginButton btnContents={{signIn: dictionary.navBar.signIn, signOut: dictionary.navBar.signOut}} />
                 <LanguageSwitcher res={res}/>
             </div>
         </>

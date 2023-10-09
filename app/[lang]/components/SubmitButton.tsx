@@ -1,13 +1,8 @@
 'use client'
 
-import { experimental_useFormStatus as useFormStatus } from 'react-dom'
-
 export function SubmitButton() {
-    const { pending } = useFormStatus()
 
     return (
-        <button type="submit" aria-disabled={pending}>
-            Add
-        </button>
+        <button className='btn btn-accent' type="submit" >Add</button>
     )
 }

@@ -16,7 +16,9 @@
     "home": "Otthon",
     "about": "Rólunk",
     "events": "Események",
-    "lang": "Nyelv"
+    "lang": "Nyelv",
+    "signIn": "Bejelentkezés",
+    "signOut": "Kijelentkezés"
   },
   "eventsPage": {
     "events": "Kreastol Közelgő Események",
@@ -50,9 +52,11 @@
     "cons": "Hátrányok"
   },
   "errors": {
-    "unknownDay": "Ismeretlen Nap!"
+    "unknownDay": "Ismeretlen Nap!",
+    "unauthorized": "Nincs Jogosultságod!"
   },
   "common": {
-    "note": "Megjegyzés:"
+    "note": "Megjegyzés:",
+    "goHome": "Vissza"
   }
 }

@@ -31,24 +31,22 @@ export default function RootLayout({children, params}: {
         <html lang={params.lang}>
         <body className={inter.className}>
         <div className="flex flex-col h-screen mx-3">
-            <ErrorBoundary errorComponent={Error}>
-                <AuthProvider>
-                    <Nav params={params}/>
-                    <main className="w-full h-full">
-                        {children}
-                    </main>
-                    <footer className="footer footer-center gap-4 p-4 flex justify-evenly flex-row max-sm:flex-col">
-                        <aside className='flex'>
-                            <p>Copyright © 2023 - Kreastol Klub Org.</p>
-                        </aside>
-                        <span
-                            className="badge badge-primary badge-outline flex">preview | kreastol-next@{publicRuntimeConfig.version}</span>
-                        <div className='flex'>
-                            <UserCard/>
-                        </div>
-                    </footer>
-                </AuthProvider>
-            </ErrorBoundary>
+            <AuthProvider>
+                <Nav params={params}/>
+                <main className="w-full h-full">
+                    {children}
+                </main>
+                <footer className="footer footer-center gap-4 p-4 flex justify-evenly flex-row max-sm:flex-col">
+                    <aside className='flex'>
+                        <p>Copyright © 2023 - Kreastol Klub Org.</p>
+                    </aside>
+                    <span
+                        className="badge badge-primary badge-outline flex">preview | kreastol-next@{publicRuntimeConfig.version}</span>
+                    <div className='flex'>
+                        <UserCard/>
+                    </div>
+                </footer>
+            </AuthProvider>
         </div>
         </body>
         </html>
