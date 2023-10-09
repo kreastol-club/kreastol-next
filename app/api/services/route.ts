@@ -42,14 +42,14 @@ export async function GET(request: NextRequest) {
         },
     });
 
-    const services = service.map((s) => {
-        if(s && s.name && s.description){
-            return { name: deserialize(s.name)}
-        }
-        else {
-            return null;
-        }
-    });
+    // const services = service.map((s) => {
+    //     if(s && s.name && s.description){
+    //         return { name: deserialize(s.name)}
+    //     }
+    //     else {
+    //         return null;
+    //     }
+    // });
 
 }
 

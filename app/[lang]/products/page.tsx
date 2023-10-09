@@ -20,13 +20,13 @@ export default async function Products({params: {lang}}: { params: { lang: Local
             <div className='flex flex-wrap gap-2'>
                 {
                     products.data.filter((p) => p).map((p) => {
-                        console.log(p)
+                        // console.log(p)
                         return <>
                             <div className="card card-compact w-96 bg-base-100 shadow-xl">
                                 <figure><img src={p.images[0]} alt="Shoes"/></figure>
                                 <div className="card-body">
-                                    <h2 className="card-title">{p.id}</h2>
-                                    {/*<p>{p.description}</p>*/}
+                                    <h2 className="card-title">{p.name}</h2>
+                                    <p>{p.description}</p>
                                     <div className="card-actions justify-end">
                                         <Link className='btn btn-primary' href={''}>Buy Now</Link>
                                     </div>
