@@ -1,4 +1,4 @@
-import Card from "@/app/[lang]/components/Card";
+import Card from "@/components/Card";
 import {getServerSession} from "next-auth";
 import {authOptions} from "@/app/api/auth/[...nextauth]/route";
 import Link from "next/link";

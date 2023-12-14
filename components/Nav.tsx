@@ -1,10 +1,10 @@
 import Link from 'next/link';
 import React from 'react'
-import LanguageSwitcher, {Resources} from "@/app/[lang]/components/LanguageSwitcher";
+import LanguageSwitcher, {Resources} from "@/components/LanguageSwitcher";
 import {Locale} from "@/i18n.config";
 import {getDictionary} from "@/dictionaries";
-import UserCard from "@/app/[lang]/components/UserCard";
-import LoginButton from "@/app/[lang]/components/LoginButton";
+import UserCard from "@/components/UserCard";
+import LoginButton from "@/components/LoginButton";
 
 export default async function Nav({params: {lang}}: {
     params: { lang: Locale }

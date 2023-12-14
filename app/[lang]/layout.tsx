@@ -1,4 +1,4 @@
-import Nav from '@/app/[lang]/components/Nav';
+import Nav from '@/components/Nav';
 import '../globals.css'
 import type {Metadata} from 'next'
 import {Inter} from 'next/font/google'
@@ -6,7 +6,7 @@ import React from "react";
 import {i18n, Locale} from "@/i18n.config";
 import getConfig from "next/config";
 import AuthProvider from "@/app/[lang]/context/AuthProvider";
-import UserCard from "@/app/[lang]/components/UserCard";
+import UserCard from "@/components/UserCard";
 import {ErrorBoundary} from "next/dist/client/components/error-boundary";
 import Error from "@/app/[lang]/error";
 

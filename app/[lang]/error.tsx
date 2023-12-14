@@ -1,7 +1,7 @@
 'use client' // Error components must be Client Components
 
 import React, {useEffect} from 'react'
-import Card from "@/app/[lang]/components/Card";
+import Card from "@/components/Card";
 import {redirect} from "next/navigation";
 
 export default function Error({error, icon, reset}: {

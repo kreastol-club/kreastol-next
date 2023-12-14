@@ -1,4 +1,4 @@
-import Card from "@/app/[lang]/components/Card";
+import Card from "@/components/Card";
 import {Locale} from "@/i18n.config";
 import React from "react";
 import EventPaginator from "@/app/[lang]/events/components/Paginator";

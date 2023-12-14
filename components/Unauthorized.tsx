@@ -1,5 +1,5 @@
-import Card from "@/app/[lang]/components/Card";
-import GoHomeButton from "@/app/[lang]/components/GoHomeButton";
+import Card from "@/components/Card";
+import GoHomeButton from "@/components/GoHomeButton";
 import {Locale} from "@/i18n.config";
 import {getDictionary} from "@/dictionaries";
 

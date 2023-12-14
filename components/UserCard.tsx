@@ -1,6 +1,7 @@
 'use client'
 
 import {useSession} from "next-auth/react";
+
 export default function UserCard() {
     const {data: session} = useSession();
 
@@ -16,7 +17,7 @@ export default function UserCard() {
                         </div>
                         <div className="avatar">
                             <div className="w-16 rounded-full">
-                                <img src={session.user.image} alt={"Avatar Image"} />
+                                <img src={session.user.image} alt={"Avatar Image"}/>
                             </div>
                         </div>
                     </div>

@@ -1,8 +1,8 @@
 import React from 'react';
-import {WeekCalendar} from "@/app/[lang]/components/calendar/WeekCalendar";
+import {WeekCalendar} from "@/components/calendar/WeekCalendar";
 import {Locale} from "@/i18n.config";
 import {getDictionary} from "@/dictionaries";
-import Note from "@/app/[lang]/components/Note";
+import Note from "@/components/Note";
 
 export default async function Week({params}: { params: { lang: Locale } }) {
     const dictionary = await getDictionary(params.lang);

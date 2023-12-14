@@ -1,8 +1,8 @@
 import React from "react";
-import {SubmitButton} from "@/app/[lang]/components/SubmitButton";
+import {SubmitButton} from "@/components/SubmitButton";
 import {getServerSession} from "next-auth";
 import {authOptions} from "@/app/api/auth/[...nextauth]/route";
-import Unauthorized from "@/app/[lang]/components/Unauthorized";
+import Unauthorized from "@/components/Unauthorized";
 import {Locale} from "@/i18n.config";
 
 export default async function CreateService({params}: { params: { lang: Locale } }) {

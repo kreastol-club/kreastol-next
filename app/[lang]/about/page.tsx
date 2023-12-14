@@ -1,4 +1,4 @@
-import Card from '@/app/[lang]/components/Card';
+import Card from '@/components/Card';
 import React from 'react'
 import {Locale} from "@/i18n.config";
 import {getDictionary} from "@/dictionaries";

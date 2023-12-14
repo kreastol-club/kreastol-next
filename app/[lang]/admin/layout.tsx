@@ -2,8 +2,8 @@ import {getServerSession} from "next-auth";
 import {authOptions} from "@/app/api/auth/[...nextauth]/route";
 import {AuthRequiredError} from "@/lib/exceptions";
 import React from "react";
-import Card from "@/app/[lang]/components/Card";
-import Unauthorized from "@/app/[lang]/components/Unauthorized";
+import Card from "@/components/Card";
+import Unauthorized from "@/components/Unauthorized";
 import {Locale} from "@/i18n.config";
 
 export default async function AdminPage({children, params}: {

@@ -1,6 +1,6 @@
 import {Locale} from "@/i18n.config";
 import {getDictionary} from "@/dictionaries";
-import Card from "@/app/[lang]/components/Card";
+import Card from "@/components/Card";
 import {headers} from "next/headers";
 
 interface Event {
