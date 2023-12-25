@@ -1,8 +1,11 @@
-export default function News() {
+import { getDictionary } from "@/dictionaries";
+import { Locale } from "@/i18n.config";
+import { title } from "process";
 
-    return (
-        <>
-            <h1>News</h1>
-        </>
-    );
+
+export default function News() {
+  return (
+    <>
+    </>
+  );
 }
