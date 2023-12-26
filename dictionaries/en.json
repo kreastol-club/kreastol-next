@@ -39,7 +39,8 @@
         "end": "Ends",
         "day": "Day",
         "forWho": "For who",
-        "desc": "Description"
+        "desc": "Description",
+        "caption": "The upcoming events in the next few weeks."
       }
     }
   },

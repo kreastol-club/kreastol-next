@@ -39,7 +39,8 @@
         "start": "Kezdődik",
         "end": "Végződik",
         "forWho": "Kinek",
-        "desc": "Leírás"
+        "desc": "Leírás",
+        "caption": "A közelgő események a következő néhány hétben."
       }
     }
   },

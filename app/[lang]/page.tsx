@@ -2,14 +2,9 @@ import Card from "@/components/Card";
 import { Locale } from "@/i18n.config";
 import { getDictionary } from "@/dictionaries";
 import Markdown from "react-markdown";
+import Article, { ArticleType } from "@/components/Article";
 
-type Article = {
-  title: string;
-  date: string;
-  content: string;
-}
-
-const NEWS: Article[] = [
+const NEWS: ArticleType[] = [
   {
     title: "Ajándékosztás a Kreastolnál",
     date: "Valamikor a napokban",
@@ -45,7 +40,7 @@ export default async function Index({ params: { lang } }: { params: { lang: Loca
   const dictionary = await getDictionary(lang)
   return (
     <>
-      <Markdown>{NEWS[0].content}</Markdown>
+      <Article article={NEWS[0]} />
     </>
   )
 }

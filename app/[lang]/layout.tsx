@@ -21,6 +21,10 @@ export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ lang: locale }))
 }
 
+function isDevelopment() {
+  return process.env.NODE_ENV === 'development';
+}
+
 export default function RootLayout({ children, params }: {
   children: React.ReactNode
   params: { lang: Locale }
@@ -41,7 +45,7 @@ export default function RootLayout({ children, params }: {
                 <aside className='flex'>
                   <p>Copyright © 2023 - Kreastol Klub Org.</p>
                 </aside>
-                <Badge>preview | kreastol-next@{publicRuntimeConfig.version}</Badge>
+                <Badge>{isDevelopment() ? "preview | " : ""}kreastol-next@{publicRuntimeConfig.version}</Badge>
                 <div className='flex'>
                   <UserCard />
                 </div>
