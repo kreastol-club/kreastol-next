@@ -8,7 +8,6 @@ import getConfig from "next/config";
 import { Badge } from '@/components/ui/badge';
 import { ThemeProvider } from '@/components/theme-provider';
 import AuthProvider from '@/context/AuthProvider';
-import { Sidebar } from '@/components/Sidebar';
 
 const inter = Inter({ subsets: ['latin'] })
 
