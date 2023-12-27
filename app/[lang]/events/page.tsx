@@ -3,13 +3,15 @@ import { getDictionary } from "@/dictionaries";
 import { headers } from "next/headers";
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 
-interface Event {
+export type EventType = {
   id: number;
-  day: number;
+  date: string;
   start: string;
   end: string;
   forWho: string;
   desc: string;
+  dayName: string;
+  private: boolean;
 }
 
 async function getData(lang: string) {
@@ -30,28 +32,7 @@ export default async function Events({ params: { lang } }: {
   params: { lang: Locale }
 }) {
   const dictionary = await getDictionary(lang);
-  const events: Event[] = await getData(lang);
-
-  function numberToDay(num: number): string {
-    switch (num) {
-      case 1:
-        return dictionary.days.mon;
-      case 2:
-        return dictionary.days.tue;
-      case 3:
-        return dictionary.days.wed;
-      case 4:
-        return dictionary.days.thu;
-      case 5:
-        return dictionary.days.fri;
-      case 6:
-        return dictionary.days.sat;
-      case 7:
-        return dictionary.days.sun;
-      default:
-        return dictionary.errors.unknownDay;
-    }
-  }
+  const events: EventType[] = await getData(lang);
 
   return (
     <Table>
@@ -68,7 +49,7 @@ export default async function Events({ params: { lang } }: {
       <TableBody>
         {events.map((event) => (
           <TableRow key={event.id} className="hover">
-            <TableCell>{numberToDay(event.day)}</TableCell>
+            <TableCell>{event.dayName}</TableCell>
             <TableCell>{event.start}</TableCell>
             <TableCell>{event.end}</TableCell>
             <TableCell>{event.forWho}</TableCell>
