@@ -9,40 +9,32 @@ export async function GET(request: any) {
   let events: EventType[] = [
     {
       id: 1,
-      date: '2023-12-29',
-      start: '10AM',
-      end: '12AM',
-      dayName: '',
+      start: '2023-12-29 10:00',
+      end: '2023-12-29 12:00',
       forWho: 'Óvodásoknak',
       desc: 'Kreastol foglalkozás!',
       private: false
     },
     {
       id: 2,
-      date: '2023-12-29',
-      start: '4PM',
-      end: '6PM',
-      dayName: '',
+      start: '2023-12-29 16:00',
+      end: '2023-12-29 18:00',
       forWho: 'Iskolásoknak',
       desc: 'Kreastol foglalkozás!',
       private: false
     },
     {
       id: 3,
-      date: '2024-01-05',
-      start: '10AM',
-      end: '12AM',
-      dayName: '',
+      start: '2024-01-05 10:00',
+      end: '2024-01-05 12:00',
       forWho: 'Óvodásoknak',
       desc: 'Kreastol foglalkozás!',
       private: false
     },
     {
       id: 4,
-      date: '2024-01-05',
-      start: '4PM',
-      end: '6PM',
-      dayName: '',
+      start: '2024-01-05 16:00',
+      end: '2024-01-05 18:00',
       forWho: 'Iskolásoknak',
       desc: 'Kreastol foglalkozás!',
       private: false

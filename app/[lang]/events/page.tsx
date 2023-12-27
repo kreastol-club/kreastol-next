@@ -2,16 +2,22 @@ import { Locale } from "@/i18n.config";
 import { getDictionary } from "@/dictionaries";
 import { headers } from "next/headers";
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { get } from "https";
 
 export type EventType = {
   id: number;
-  date: string;
   start: string;
   end: string;
   forWho: string;
   desc: string;
-  dayName: string;
   private: boolean;
+}
+
+type DisplayedEvent = {
+  id: number;
+  date: string;
+  duration: string;
+  forWho: string;
 }
 
 async function getData(lang: string) {
@@ -28,11 +34,43 @@ async function getData(lang: string) {
   return res.json()
 }
 
+
 export default async function Events({ params: { lang } }: {
   params: { lang: Locale }
 }) {
+
+  function convertEvents(events: EventType[]): DisplayedEvent[] {
+    return events.map(e => getDisplayedEvent(e));
+  }
+
   const dictionary = await getDictionary(lang);
-  const events: EventType[] = await getData(lang);
+  const events: DisplayedEvent[] = convertEvents(await getData(lang));
+
+  function getFormattedDate(date: Date) {
+    return date.toLocaleDateString(lang, { year: "numeric", month: "numeric", day: "numeric", weekday: "short" });
+  }
+
+  function getFormattedTime(date: Date) {
+    return date.toLocaleTimeString(lang, { hour: "numeric", minute: "numeric" });
+  }
+
+  function getDisplayedEvent(event: EventType): DisplayedEvent {
+    let displayedEvent = {} as DisplayedEvent;
+    let startDate = new Date(event.start);
+    let endDate = new Date(event.end);
+
+    if (endDate.getDate() - startDate.getDate() === 0) {
+      displayedEvent.date = getFormattedDate(startDate);
+    } else {
+      displayedEvent.date = `${getFormattedDate(startDate)} - ${getFormattedDate(endDate)}`
+    }
+
+    displayedEvent.id = event.id;
+    displayedEvent.forWho = event.forWho;
+    displayedEvent.duration = `${getFormattedTime(startDate)} - ${getFormattedTime(endDate)}`;
+
+    return displayedEvent;
+  }
 
   return (
     <Table>
@@ -40,19 +78,15 @@ export default async function Events({ params: { lang } }: {
       <TableHeader>
         <TableRow>
           <TableHead>{dictionary.eventsPage.layout.list.date}</TableHead>
-          <TableHead>{dictionary.eventsPage.layout.list.day}</TableHead>
-          <TableHead>{dictionary.eventsPage.layout.list.start}</TableHead>
-          <TableHead>{dictionary.eventsPage.layout.list.end}</TableHead>
+          <TableHead className='sm:w-[100px] md:w-fit'>{dictionary.eventsPage.layout.list.duration}</TableHead>
           <TableHead>{dictionary.eventsPage.layout.list.forWho}</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
         {events.map((event) => (
           <TableRow key={event.id} className="hover">
-            <TableCell>{new Date(event.date).toLocaleDateString(lang)}</TableCell>
-            <TableCell>{event.dayName}</TableCell>
-            <TableCell>{event.start}</TableCell>
-            <TableCell>{event.end}</TableCell>
+            <TableCell>{event.date}</TableCell>
+            <TableCell>{event.duration}</TableCell>
             <TableCell>{event.forWho}</TableCell>
           </TableRow>
         ))}

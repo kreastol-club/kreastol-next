@@ -30,6 +30,7 @@
         "date": "Dátum",
         "start": "Kezdődik",
         "end": "Végződik",
+        "duration": "Hossz",
         "forWho": "Kinek",
         "desc": "Leírás",
         "caption": "A közelgő események a következő néhány hétben."

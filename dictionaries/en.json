@@ -30,6 +30,7 @@
         "end": "Ends",
         "day": "Day",
         "date": "Date",
+        "duration": "Duration",
         "forWho": "For who",
         "desc": "Description",
         "caption": "The upcoming events in the next few weeks."
