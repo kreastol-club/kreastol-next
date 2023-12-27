@@ -3,15 +3,6 @@
     "en": "Angol",
     "hu": "Magyar"
   },
-  "days": {
-    "mon": "Hétfő",
-    "tue": "Kedd",
-    "wed": "Szerda",
-    "thu": "Csütörtök",
-    "fri": "Péntek",
-    "sat": "Szombat",
-    "sun": "Vasárnaő"
-  },
   "navBar" : {
     "home": "Otthon",
     "about": "Rólunk",
@@ -36,6 +27,7 @@
       },
       "list": {
         "day": "Nap",
+        "date": "Dátum",
         "start": "Kezdődik",
         "end": "Végződik",
         "forWho": "Kinek",

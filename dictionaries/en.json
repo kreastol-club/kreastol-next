@@ -3,15 +3,6 @@
     "en": "English",
     "hu": "Hungarian"
   },
-  "days": {
-    "mon": "Monday",
-    "tue": "Tuesday",
-    "wed": "Wednesday",
-    "thu": "Thursday",
-    "fri": "Friday",
-    "sat": "Saturday",
-    "sun": "Sunday"
-  },
   "navBar": {
     "home": "Home",
     "about": "About",
@@ -38,6 +29,7 @@
         "start": "Starts",
         "end": "Ends",
         "day": "Day",
+        "date": "Date",
         "forWho": "For who",
         "desc": "Description",
         "caption": "The upcoming events in the next few weeks."

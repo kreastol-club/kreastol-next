@@ -39,21 +39,21 @@ export default async function Events({ params: { lang } }: {
       <TableCaption>{dictionary.eventsPage.layout.list.caption}</TableCaption>
       <TableHeader>
         <TableRow>
+          <TableHead>{dictionary.eventsPage.layout.list.date}</TableHead>
           <TableHead>{dictionary.eventsPage.layout.list.day}</TableHead>
           <TableHead>{dictionary.eventsPage.layout.list.start}</TableHead>
           <TableHead>{dictionary.eventsPage.layout.list.end}</TableHead>
           <TableHead>{dictionary.eventsPage.layout.list.forWho}</TableHead>
-          <TableHead>{dictionary.eventsPage.layout.list.desc}</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
         {events.map((event) => (
           <TableRow key={event.id} className="hover">
+            <TableCell>{new Date(event.date).toLocaleDateString(lang)}</TableCell>
             <TableCell>{event.dayName}</TableCell>
             <TableCell>{event.start}</TableCell>
             <TableCell>{event.end}</TableCell>
             <TableCell>{event.forWho}</TableCell>
-            <TableCell>{event.desc}</TableCell>
           </TableRow>
         ))}
       </TableBody>

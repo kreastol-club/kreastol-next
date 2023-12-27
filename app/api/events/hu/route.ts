@@ -1,53 +1,53 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { EventType } from "@/app/[lang]/events/page";
+import { getFilteredEvents } from "../utils";
 
 export async function GET(request: any) {
   const session = await getServerSession(authOptions);
-  const isAdmin = session?.user.role === "admin" ?? false;
 
-  let events = [
+  let events: EventType[] = [
     {
       id: 1,
-      day: 5,
       date: '2023-12-29',
       start: '10AM',
       end: '12AM',
-      forWho: 'Gyerekeknek',
+      dayName: '',
+      forWho: 'Óvodásoknak',
       desc: 'Kreastol foglalkozás!',
       private: false
     },
     {
       id: 2,
-      day: 5,
       date: '2023-12-29',
       start: '4PM',
       end: '6PM',
-      forWho: 'Gyerekeknek',
+      dayName: '',
+      forWho: 'Iskolásoknak',
       desc: 'Kreastol foglalkozás!',
       private: false
     },
     {
       id: 3,
-      day: 5,
-      date: '2023-01-05',
+      date: '2024-01-05',
       start: '10AM',
       end: '12AM',
-      forWho: 'Gyerekeknek',
+      dayName: '',
+      forWho: 'Óvodásoknak',
       desc: 'Kreastol foglalkozás!',
       private: false
     },
     {
       id: 4,
-      day: 5,
-      date: '2023-01-05',
+      date: '2024-01-05',
       start: '4PM',
       end: '6PM',
-      forWho: 'Gyerekeknek',
+      dayName: '',
+      forWho: 'Iskolásoknak',
       desc: 'Kreastol foglalkozás!',
       private: false
     }
   ]
 
-  events = isAdmin ? events : events.filter((event) => !event.private);
-  return new Response(JSON.stringify(events));
+  return new Response(JSON.stringify(getFilteredEvents(events, "hu", session?.user.role === "admin" ?? false)));
 }

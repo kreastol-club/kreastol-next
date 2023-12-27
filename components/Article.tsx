@@ -1,6 +1,9 @@
 import Markdown from "react-markdown";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "./ui/card";
 
+function getFormattedDateString(date: string, locale: string) {
+  return new Date(date).toLocaleString(locale, { year: "numeric", month: "numeric", weekday: "long", day: "numeric", hour: "numeric", minute: "numeric", })
+}
 
 export type ArticleType = {
   title: string;
@@ -8,7 +11,7 @@ export type ArticleType = {
   content: string;
 }
 
-export default function Article({ article }: { article: ArticleType }) {
+export default function Article({ article, locale }: { article: ArticleType, locale: string }) {
   return <Card>
     <CardHeader>
       <CardTitle>{article.title}</CardTitle>
@@ -17,7 +20,7 @@ export default function Article({ article }: { article: ArticleType }) {
       <Markdown className={"markdown"}>{article.content}</Markdown>
     </CardContent>
     <CardFooter>
-      <p>{article.date}</p>
+      <p>{getFormattedDateString(article.date, locale)}</p>
     </CardFooter>
   </Card>
 }
