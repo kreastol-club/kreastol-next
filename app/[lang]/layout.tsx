@@ -22,7 +22,7 @@ export async function generateStaticParams() {
 }
 
 function envBadge() {
-  return process.env.NODE_ENV === 'production' ? "" : `${process.env.NODE_ENV} | `;
+  return process.env.RUNTIME === 'production' ? "" : `${process.env.RUNTIME} | `;
 }
 
 export default function RootLayout({ children, params }: {
