@@ -41,13 +41,12 @@ export default function RootLayout({ children, params }: {
               <main className="w-full h-full">
                 {children}
               </main>
-              <footer className="footer footer-center gap-4 p-4 flex justify-evenly flex-row max-sm:flex-col">
-                <aside className='flex'>
-                  <p>Copyright © 2023 - Kreastol Klub Org.</p>
+              <footer className="gap-4 p-4 flex justify-evenly flex-col xs:flex-row">
+                <aside className='xs:w-fit w-full'>
+                  <p className='text-sm xs:text-left text-center'>Copyright © 2023 - Kreastol Klub Org.</p>
                 </aside>
-                <Badge>{envBadge()}kreastol-next@{publicRuntimeConfig.version}</Badge>
-                <div className='flex'>
-                  <UserCard />
+                <div className='flex xs:w-fit w-full h-fit self-center justify-center'>
+                  <Badge>{envBadge()}kreastol-next@{publicRuntimeConfig.version}</Badge>
                 </div>
               </footer>
             </AuthProvider>
