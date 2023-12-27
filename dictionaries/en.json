@@ -4,12 +4,16 @@
     "hu": "Hungarian"
   },
   "navBar": {
+    "loginBtn": {
+      "signIn": "Sign In",
+      "signOut": "Sign Out",
+      "profile": "Profile",
+      "settings": "Settings"
+    },
     "home": "Home",
     "about": "About",
     "events": "Events",
-    "lang": "Language",
-    "signIn": "Sign In",
-    "signOut": "Sign Out"
+    "lang": "Language"
   },
   "eventsPage": {
     "events": "Kreastol Upcoming Events",

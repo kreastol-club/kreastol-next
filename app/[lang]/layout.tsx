@@ -5,10 +5,10 @@ import { Inter } from 'next/font/google'
 import React from "react";
 import { i18n, Locale } from "@/i18n.config";
 import getConfig from "next/config";
-import AuthProvider from "@/app/[lang]/context/AuthProvider";
-import UserCard from "@/components/UserCard";
 import { Badge } from '@/components/ui/badge';
 import { ThemeProvider } from '@/components/theme-provider';
+import AuthProvider from '@/context/AuthProvider';
+import { Sidebar } from '@/components/Sidebar';
 
 const inter = Inter({ subsets: ['latin'] })
 

@@ -4,12 +4,16 @@
     "hu": "Magyar"
   },
   "navBar" : {
+    "loginBtn": {
+      "signIn": "Bejelentkezés",
+      "signOut": "Kijelentkezés",
+      "profile": "Profil",
+      "settings": "Beállítások"
+    },
     "home": "Otthon",
     "about": "Rólunk",
     "events": "Események",
-    "lang": "Nyelv",
-    "signIn": "Bejelentkezés",
-    "signOut": "Kijelentkezés"
+    "lang": "Nyelv"
   },
   "eventsPage": {
     "events": "Kreastol Közelgő Események",
