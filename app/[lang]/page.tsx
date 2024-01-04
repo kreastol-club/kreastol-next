@@ -2,6 +2,21 @@ import { Locale } from "@/i18n.config";
 import { getDictionary } from "@/dictionaries";
 import Article, { ArticleType } from "@/components/Article";
 
+const getTime = (date?: Date) => {
+  return date != null ? date.getTime() : 0;
+}
+
+
+const sortByDate = (articles: ArticleType[]): ArticleType[] => {
+  const updated = articles.slice();
+
+  updated.sort((a: ArticleType, b: ArticleType) => {
+    return getTime(new Date(a.date)) - getTime(new Date(b.date)) || getTime(new Date(b.date)) - getTime(new Date(a.date));
+  });
+
+  return updated;
+}
+
 const NEWS: { 'en': ArticleType[], 'hu': ArticleType[] } = {
   'en': [
     {
@@ -26,10 +41,9 @@ We will meet again on January 5th in the usual place from 10:00 am to 12:00 pm a
 #### Future Events
 - Dec 29, 2023, Friday 10:00-12:00
 - Dec 29, 2023, Friday 16:00-18:00
-- Jan 5, 2024, Friday 10:00-12:00
 - Jan 5, 2024, Friday 16:00-18:00
 `
-    }
+    },
   ],
   'hu': [
     {
@@ -55,8 +69,24 @@ Január 5-ikén már újra találkozunk a megszokott helyen délelőtt 10-től 1
 
  - 2023 Dec 29., Péntek 10:00-12:00
  - 2023 Dec 29., Péntek 16:00-18:00
- - 2024 Jan 5., Péntek 10:00-12:00
  - 2024 Jan 5., Péntek 16:00-18:00
+`
+    },
+    {
+      title: "Kreastol az iskolásoknak",
+      date: "2024-01-04 19:25:34",
+      content: `
+## Értesrés
+
+Változott a holnapi nap, részletek itt láthatókak [Események](https://kreastol-klub.org/hu/events)
+
+### Délelőtt nincs
+
+Holnap délelőtt (jan. 5.) az ovis korosztálynak elmarad az alkalom!
+
+### Délután van
+
+Az iskolás korosztálynak megmarad délutan 16:00tól
 `
     }
   ]
@@ -65,7 +95,7 @@ export default async function Index({ params: { lang } }: { params: { lang: Loca
   const dictionary = await getDictionary(lang);
   return (
     <>
-      <Article article={NEWS[lang][0]} locale={lang} />
+      {sortByDate(NEWS[lang]).map(a => <Article key={a.title} article={a} locale={lang} />)}
     </>
   )
 }
