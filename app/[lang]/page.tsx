@@ -11,7 +11,7 @@ const sortByDate = (articles: ArticleType[]): ArticleType[] => {
   const updated = articles.slice();
 
   updated.sort((a: ArticleType, b: ArticleType) => {
-    return getTime(new Date(a.date)) - getTime(new Date(b.date)) || getTime(new Date(b.date)) - getTime(new Date(a.date));
+    return getTime(new Date(b.date)) - getTime(new Date(a.date));
   });
 
   return updated;
@@ -78,7 +78,7 @@ Január 5-ikén már újra találkozunk a megszokott helyen délelőtt 10-től 1
       content: `
 ## Értesrés
 
-Változott a holnapi nap, részletek itt láthatókak [Események](https://kreastol-klub.org/hu/events)
+Változott a holnapi nap, részletek [itt láthatókak](https://kreastol-klub.org/hu/events)
 
 ### Délelőtt nincs
 
@@ -94,8 +94,8 @@ Az iskolás korosztálynak megmarad délutan 16:00tól
 export default async function Index({ params: { lang } }: { params: { lang: Locale } }) {
   const dictionary = await getDictionary(lang);
   return (
-    <>
+    <div className={'flex flex-col space-y-2 h-full overflow-y-auto'}>
       {sortByDate(NEWS[lang]).map(a => <Article key={a.title} article={a} locale={lang} />)}
-    </>
+    </div>
   )
 }

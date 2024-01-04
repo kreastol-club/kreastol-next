@@ -38,7 +38,7 @@ export default function RootLayout({ children, params }: {
           <div className="flex flex-col h-screen mx-3">
             <AuthProvider>
               <Nav params={params} />
-              <main className="w-full h-full">
+              <main className="w-full h-full overflow-y-auto">
                 {children}
               </main>
               <footer className="footer footer-center gap-4 p-4 flex justify-evenly flex-row max-sm:flex-col">
