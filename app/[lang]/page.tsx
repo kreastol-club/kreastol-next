@@ -76,7 +76,7 @@ Január 5-ikén már újra találkozunk a megszokott helyen délelőtt 10-től 1
       title: "Kreastol az iskolásoknak",
       date: "2024-01-04 19:25:34",
       content: `
-## Értesrés
+## Értesítés
 
 Változott a holnapi nap, részletek [itt láthatókak](https://kreastol-klub.org/hu/events)
 
