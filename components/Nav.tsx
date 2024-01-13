@@ -28,8 +28,8 @@ export default async function Nav({ params: { lang } }: {
 
         <div className='w-full flex flex-1 space-x-4 my-1 justify-center items-center'>
           <ThemeChanger />
-          <LoginButton btnContents={{ signIn: dictionary.navBar.signIn, signOut: dictionary.navBar.signOut }} />
           <LanguageSwitcher res={res} />
+          <LoginButton btnContents={{ ...dictionary.navBar.loginBtn }} />
         </div>
       </div>
     </>

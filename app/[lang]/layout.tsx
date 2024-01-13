@@ -5,10 +5,9 @@ import { Inter } from 'next/font/google'
 import React from "react";
 import { i18n, Locale } from "@/i18n.config";
 import getConfig from "next/config";
-import AuthProvider from "@/app/[lang]/context/AuthProvider";
-import UserCard from "@/components/UserCard";
 import { Badge } from '@/components/ui/badge';
 import { ThemeProvider } from '@/components/theme-provider';
+import AuthProvider from '@/context/AuthProvider';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -22,7 +21,7 @@ export async function generateStaticParams() {
 }
 
 function envBadge() {
-  return process.env.NODE_ENV === 'production' ? "" : `${process.env.NODE_ENV} | `;
+  return process.env.RUNTIME === 'production' ? "" : `${process.env.RUNTIME} | `;
 }
 
 export default function RootLayout({ children, params }: {
@@ -41,13 +40,12 @@ export default function RootLayout({ children, params }: {
               <main className="w-full h-full overflow-y-auto">
                 {children}
               </main>
-              <footer className="footer footer-center gap-4 p-4 flex justify-evenly flex-row max-sm:flex-col">
-                <aside className='flex'>
-                  <p>Copyright © 2023 - Kreastol Klub Org.</p>
+              <footer className="gap-4 p-4 flex justify-evenly flex-col xs:flex-row">
+                <aside className='xs:w-fit w-full'>
+                  <p className='text-sm xs:text-left text-center'>Copyright © 2023 - Kreastol Klub Org.</p>
                 </aside>
-                <Badge>{envBadge()}kreastol-next@{publicRuntimeConfig.version}</Badge>
-                <div className='flex'>
-                  <UserCard />
+                <div className='flex xs:w-fit w-full h-fit self-center justify-center'>
+                  <Badge>{envBadge()}kreastol-next@{publicRuntimeConfig.version}</Badge>
                 </div>
               </footer>
             </AuthProvider>
