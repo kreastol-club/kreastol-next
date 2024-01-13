@@ -51,18 +51,18 @@ export default function LoginButton({ btnContents }: { btnContents: Locales }) {
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
-              <Link href={'/user'}>
-                <DropdownMenuItem>
+              <DropdownMenuItem disabled>
+                <Link className={'flex flex-row justify-between w-full'} href={'/user'}>
                   {btnContents.profile}
                   <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
-                </DropdownMenuItem>
-              </Link>
-              <Link href={'/user/settings'}>
-                <DropdownMenuItem>
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem disabled>
+                <Link className={'flex flex-row justify-between w-full'} href={'/user/settings'}>
                   {btnContents.settings}
                   <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
-                </DropdownMenuItem>
-              </Link>
+                </Link>
+              </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuItem onClick={() => signOut()}>
