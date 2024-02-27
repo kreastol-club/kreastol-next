@@ -43,18 +43,6 @@ const auth = withAuth(
 
 export function middleware(request: NextRequest, ev: NextFetchEvent) {
   const pathname = request.nextUrl.pathname
-
-  const currentEnv = process.env.NODE_ENV as Environment;
-  // const baseUrl = process.env.BASE_URL as string;
-
-  if (currentEnv === 'production' &&
-    request.headers.get("x-forwarded-proto") !== "https") {
-    return NextResponse.redirect(
-      `https://${request.headers.get('host')}${request.nextUrl.pathname}`,
-      301
-    );
-  }
-
   if (pathname.startsWith(''))
 
     if (
@@ -73,9 +61,6 @@ export function middleware(request: NextRequest, ev: NextFetchEvent) {
   )
 
   if (pathnameIsMissingLocale) {
-
-    // const locale = getLocale(request)
-
     const locale = 'hu';
 
     return NextResponse.redirect(
