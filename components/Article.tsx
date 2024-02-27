@@ -12,7 +12,7 @@ export type ArticleType = {
 }
 
 export default function Article({ article, locale }: { article: ArticleType, locale: string }) {
-  return <Card>
+  return <Card className={'article'}>
     <CardHeader>
       <CardTitle>{article.title}</CardTitle>
     </CardHeader>

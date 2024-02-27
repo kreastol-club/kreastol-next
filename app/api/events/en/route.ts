@@ -29,7 +29,7 @@ export async function GET() {
       end: '2024-01-05 12:00',
       forWho: 'Kindergarteners',
       desc: 'Kreastol workshop!',
-      private: false
+      private: true
     },
     {
       id: 4,

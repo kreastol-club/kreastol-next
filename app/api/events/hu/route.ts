@@ -29,7 +29,7 @@ export async function GET(request: any) {
       end: '2024-01-05 12:00',
       forWho: 'Óvodásoknak',
       desc: 'Kreastol foglalkozás!',
-      private: false
+      private: true
     },
     {
       id: 4,
