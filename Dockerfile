@@ -31,5 +31,5 @@ RUN chmod +x ./entrypoint.sh
 
 ENTRYPOINT ["./entrypoint.sh"]
 
-EXPOSE 3000
+EXPOSE 4500
 CMD ["npm", "start"]
