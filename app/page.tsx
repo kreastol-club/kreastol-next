@@ -1,9 +1,18 @@
-import Image from 'next/image'
+import { HeroParallax } from '@/components/ui/hero-parallax'
+import { HoveredLinkProps, Navbar } from '@/components/ui/navbar'
+
+
+const links: HoveredLinkProps[] = [
+  { href: '/about', children: 'About' },
+  { href: '/contact', children: 'Contact' },
+  { href: '/blog', children: 'Blog' },
+];
 
 export default function Home() {
   return (
     <div>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+      <Navbar links={links} />
+      <HeroParallax products={[]} />
     </div>
   )
 }
