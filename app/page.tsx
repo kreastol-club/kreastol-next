@@ -3,7 +3,6 @@ import { HoveredLinkProps, Navbar } from '@/components/ui/navbar'
 
 
 const links: HoveredLinkProps[] = [
-  { href: '/about', children: 'About' },
   { href: '/contact', children: 'Contact' },
   { href: '/blog', children: 'Blog' },
 ];

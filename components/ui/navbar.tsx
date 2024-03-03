@@ -192,6 +192,7 @@ export function Navbar({ className, links, products }: NavbarProps) {
       <Menu setActive={setActive}>
         <ThemeChanger />
         <MenuLink href="/">Home</MenuLink>
+        <MenuLink href="/about">About</MenuLink>
         <MenuItem setActive={setActive} active={active} item="Services">
           <div className="flex flex-col space-y-4 text-sm">
             {linksData}

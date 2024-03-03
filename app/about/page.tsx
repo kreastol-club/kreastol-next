@@ -22,7 +22,7 @@ export default function Page() {
 
   const ourStory = (
     <div className="h-screen w-full bg-black flex flex-col items-center justify-center overflow-hidden rounded-md">
-      <h1 className="md:text-6xl text-3xl lg:text-8xl font-bold text-center text-white relative z-20">
+      <h1 className="md:text-7xl text-4xl lg:text-9xl font-bold text-center text-white relative z-20">
         <span className="text-indigo-500">Our</span> <span className="text-sky-500">story</span>
       </h1>
       <div className="w-[40rem] h-40 relative">
