@@ -15,6 +15,7 @@ type ParticlesProps = {
   minSize?: number;
   maxSize?: number;
   speed?: number;
+  particleColors?: string[];
   particleColor?: string;
   particleDensity?: number;
 };
@@ -26,9 +27,17 @@ export const SparklesCore = (props: ParticlesProps) => {
     minSize,
     maxSize,
     speed,
+    particleColors,
     particleColor,
     particleDensity,
   } = props;
+
+  if (particleColor) {
+    if (!particleColors) {
+      props.particleColors = [];
+    }
+    particleColors?.push(particleColor);
+  }
   const [init, setInit] = useState(false);
   useEffect(() => {
     initParticlesEngine(async (engine) => {
@@ -50,6 +59,13 @@ export const SparklesCore = (props: ParticlesProps) => {
       });
     }
   };
+
+
+  const getRandomColorFromParticleColors = () => {
+    return particleColors
+      ? particleColors[Math.floor(Math.random() * particleColors.length)]
+      : "#FFFFFF";
+  }
 
   return (
     <motion.div animate={controls} className={cn("opacity-0", className)}>
@@ -122,7 +138,7 @@ export const SparklesCore = (props: ParticlesProps) => {
                 },
               },
               color: {
-                value: particleColor || "#ffffff",
+                value: getRandomColorFromParticleColors(),
                 animation: {
                   h: {
                     count: 0,
