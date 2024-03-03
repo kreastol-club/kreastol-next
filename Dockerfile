@@ -14,7 +14,6 @@ FROM node:lts as runner
 WORKDIR /app
 ENV NEXT_TELEMETRY_DISABLED 1
 
-COPY --from=dependencies /app/prisma ./prisma
 COPY --from=builder /app/next.config.js ./
 COPY --from=builder /app/*.ts ./
 COPY --from=builder /app/public ./public
